@@ -2,37 +2,46 @@ body {
     font-size: 0;
 }
 
+p {
+    font-size: 16px;
+}
+
+
 .hexagon-set_normal {
     --width: 200px;
 }
 
-.hexagon__line {
+
+.hexagon-set__line {
     margin-top: calc(var(--width) / -4);
     margin-left: calc(var(--width) * -0.03349364905);
 }
 
-.hexagon__line:first-child {
+.hexagon-set__line:first-child {
     margin-top: 0;
 }
 
-.hexagon__line:nth-of-type(even) {
+.hexagon-set__line:nth-of-type(even) {
     margin-left: calc(var(--width) / 2 - var(--width) * 0.03349364905 / 2);
 }
 
 .hexagon {
     display: inline-block;
     width: var(--width);
+    vertical-align: middle;
     margin-left: calc(var(--width) * 0.03349364905);
 }
 
-.hexagon__main__caption {
+.hexagon__filling {
+    overflow: hidden;
+    content: "";
     position: absolute;
-    font-size: 16px;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background-color: white;
+    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
 }
 
 .hexagon__main {
@@ -52,13 +61,18 @@ body {
     background: black;
 }
 
-.hexagon__main_border:before {
-    content: "";
+.hexagon__img {
+    background-image: url("../img/image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+.centered-text {
     position: absolute;
-    top: 6px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
-    background-color: white;
-    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
