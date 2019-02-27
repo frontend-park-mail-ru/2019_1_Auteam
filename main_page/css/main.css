@@ -1,0 +1,21 @@
+.hexagon-set_main {
+    --width: 150px;
+}
+
+.hexagon-set_play {
+    --width: 180px;
+}
+
+.title {
+    font-size: 40px;
+    text-align: center;
+    left: 50%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    color: #14ffec;
+    font-family: 'Oswald', serif;
+}
+
+.play-block {
+    margin-top: 75px;
+}
