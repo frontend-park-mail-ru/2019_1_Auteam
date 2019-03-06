@@ -48,7 +48,7 @@ body {
 }
 
 .hexagon__filling_custom {
-    background-color: #0d7377;
+    background-color: var(--hexagon-color);
 }
 
 .hexagon__main {
@@ -69,7 +69,7 @@ body {
 }
 
 .hexagon__main_border_custom {
-    background-color: #323232;
+    background-color: var(--border-color);
 }
 
 .hexagon__img {
