@@ -5,13 +5,3 @@
 .hexagon-set_play {
     --width: 180px;
 }
-
-.title {
-    font-size: 40px;
-    text-align: center;
-    color: var(--main-text-color);
-    font-family: 'Oswald', serif;
-}
-
-.play-block {
-}
