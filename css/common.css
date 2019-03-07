@@ -174,4 +174,8 @@ input:-webkit-autofill {
 
 .pagination {
     user-select: none;
+    font-size: 32px;
+    text-align: center;
+    color: var(--main-text-color);
+    font-family: 'Oswald', serif;
 }
