@@ -6,7 +6,6 @@ body {
     --width: 200px;
 }
 
-
 .hexagon-set__line {
     margin-top: calc(var(--width) / -4);
     margin-left: calc(var(--width) * -0.03349364905);
@@ -25,6 +24,11 @@ body {
     width: var(--width);
     vertical-align: middle;
     margin-left: calc(var(--width) * 0.03349364905);
+    transition: all 0.2s ease-in-out;
+}
+
+.hexagon:hover {
+    transform: scale(1.05);
 }
 
 .hexagon__filling {
@@ -35,8 +39,15 @@ body {
     left: 6px;
     right: 6px;
     bottom: 6px;
-    background-color: white;
     clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+}
+
+.hexagon__filling_white {
+    background-color: white;
+}
+
+.hexagon__filling_custom {
+    background-color: var(--hexagon-color);
 }
 
 .hexagon__main {
@@ -56,6 +67,10 @@ body {
     background: black;
 }
 
+.hexagon__main_border_custom {
+    background-color: var(--border-color);
+}
+
 .hexagon__img {
     background-image: url("../img/image.jpg");
     background-size: cover;
@@ -64,11 +79,16 @@ body {
     height: 100%;
 }
 
-.centered-text {
-    font-size: 16px;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.hexagon-set_odd .hexagon-set__line:nth-of-type(odd) {
+    margin-left: calc(var(--width) / 2 - var(--width) * 0.03349364905 / 2);
+}
+
+.hexagon-set_odd .hexagon-set__line:nth-of-type(even) {
+    margin-left: calc(var(--width) * -0.03349364905);
+}
+
+.main-grid {
+    display: grid;
+    grid-template-rows: 100px 1fr 45px;
+    grid-template-columns: 1fr 320px 1fr;
 }
