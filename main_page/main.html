@@ -7,45 +7,11 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
         <style>
-            .main_grid {
-                display: grid;
-                grid-template-rows: 6px 60px 1fr 15px 30px;
-                grid-template-columns: 1fr 207px;
-            }
-            .content {
-                grid-area: 3 / 1 / 4 / 4;
-            }
-
-            .footer-grid {
-                grid-area: 5 / 1 / 6 / 4;
-            }
-
-            .back_button {
-                grid-row: 2 / 3;
-                grid-column: 2 / 3;
-            }
-
-            .title_main {
-                grid-area: 2 / 1 / 3 / 3;
-            }
         </style>
     </head>
     <body>
-        <div class="root main_grid">
-            <div class="hexagon-set_normal back_button">
-                <div class="hexagon-set__line">
-                    <div class="hexagon">
-                        <a href="#" class="hexagon__main hexagon__main_border_custom">
-                            <div class="hexagon__filling hexagon__filling_custom">
-                                <div class="centered-text">
-                                    Back
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="title title_main">Bee Hexual</div>
+        <div class="root main-grid">
+            <div class="title title-main">Bee Hexual</div>
             <div class="content">
                 <div class="centered-context">
                     <div class="hexagon-set_main hexagon-set_odd">
@@ -92,24 +58,23 @@
                             
                         </div>
                     </div>
-
                     <div class="hexagon-set_play">
-                            <div class="hexagon-set__line">
-                                <div class="hexagon">
-                                    <a href="#" class="hexagon__main hexagon__main_border_custom">
-                                        <div class="hexagon__filling hexagon__filling_custom">
-                                            <div class="centered-text">
-                                                Play
-                                            </div>
+                        <div class="hexagon-set__line">
+                            <div class="hexagon">
+                                <a href="#" class="hexagon__main hexagon__main_border_custom">
+                                    <div class="hexagon__filling hexagon__filling_custom">
+                                        <div class="centered-text">
+                                            Play
                                         </div>
-                                    </a>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-grid">
-                <footer>
+                <footer class="footer-default">
                     developed by Auteam (c) 2019
                 </footer>
             </div>
