@@ -172,3 +172,6 @@ input:-webkit-autofill {
     -webkit-text-fill-color: black !important;
 }
 
+.pagination {
+    user-select: none;
+}
