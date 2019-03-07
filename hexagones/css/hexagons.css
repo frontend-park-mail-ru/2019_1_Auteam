@@ -6,7 +6,6 @@ body {
     --width: 200px;
 }
 
-
 .hexagon-set__line {
     margin-top: calc(var(--width) / -4);
     margin-left: calc(var(--width) * -0.03349364905);
@@ -80,12 +79,16 @@ body {
     height: 100%;
 }
 
-
-
 .hexagon-set_odd .hexagon-set__line:nth-of-type(odd) {
     margin-left: calc(var(--width) / 2 - var(--width) * 0.03349364905 / 2);
 }
 
 .hexagon-set_odd .hexagon-set__line:nth-of-type(even) {
     margin-left: calc(var(--width) * -0.03349364905);
+}
+
+.main-grid {
+    display: grid;
+    grid-template-rows: 100px 1fr 45px;
+    grid-template-columns: 1fr 320px 1fr;
 }
