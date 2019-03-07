@@ -120,8 +120,9 @@ footer {
 
 .login-form > input {
     margin-bottom: 30px;
-    width: calc(100% - 10px);
-    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
     border: 5px solid var(--hexagon-color);
     background-color: #586e75;
 }
@@ -148,3 +149,15 @@ button {
     cursor: pointer;
     border: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #586e75 inset !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: black !important;
+}
+
