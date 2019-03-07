@@ -58,6 +58,10 @@ a:hover {
     box-sizing: border-box;
 }
 
+.centered-context_near {
+    justify-content: normal;
+}
+
 .centered-context_with-footer {
     height: calc(100% - 30px);
 }
@@ -139,6 +143,10 @@ footer {
 .login-button {
     padding-top: 6px;
     padding-bottom: 6px;
+}
+
+.hexagon-button-set_md {
+    --width: 150px;
 }
 
 .content_width {
