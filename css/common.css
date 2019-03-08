@@ -121,6 +121,7 @@ footer {
 
 .login-form {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,6 +156,10 @@ footer {
     --width: 150px;
 }
 
+.hexagon-button-set_sm {
+    --width: 130px;
+}
+
 .content_width {
     grid-area: 2 / 1 / 3 / 4;
 }
@@ -181,4 +186,11 @@ input:-webkit-autofill {
     text-align: center;
     color: var(--main-text-color);
     font-family: 'Oswald', serif;
+}
+
+
+.main-grid {
+    display: grid;
+    grid-template-rows: 100px 1fr 45px;
+    grid-template-columns: 1fr 320px 1fr;
 }

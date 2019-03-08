@@ -77,6 +77,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;
+    cursor: pointer;
 }
 
 .hexagon-set_odd .hexagon-set__line:nth-of-type(odd) {
@@ -85,10 +86,4 @@ body {
 
 .hexagon-set_odd .hexagon-set__line:nth-of-type(even) {
     margin-left: calc(var(--width) * -0.03349364905);
-}
-
-.main-grid {
-    display: grid;
-    grid-template-rows: 100px 1fr 45px;
-    grid-template-columns: 1fr 320px 1fr;
 }
