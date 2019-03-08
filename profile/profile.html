@@ -4,48 +4,9 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../hexagones/css/hexagons.css">
         <link rel="stylesheet" type="text/css" href="../css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/profile.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     </head>
-    <style type="text/css">
-        .hexagon__main > input {
-            display: none;
-        }
-
-        .main-grid_profile {
-            grid-template-columns: 1fr 600px 1fr;
-        }
-
-        .profile-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px,1fr) minmax(200px,2fr));
-            grid-gap: 10px;
-        }
-
-        .foooter-grid_profle {
-            grid-row: 4 / 5;
-        }
-
-        .grid-right {
-            grid-column: 2 / 3;
-        }
-
-        .grid-left {
-            grid-column: 1 / 2;
-        }
-
-        .login-form > input {
-            margin-bottom: 0px;
-        }
-
-        .text {
-            width: 100%;
-            float: left;
-            text-align: right;
-            font-size: 20px;
-            color: var(--main-text-color);
-            font-family: 'Oswald', serif;
-        }
-    </style>
     <body>
         <div class="root main-grid main-grid_profile">
             <div class="hexagon-set_normal back-button">
@@ -80,15 +41,15 @@
                 <form class="login-form" action="" method="POST">
                 <div class="profile-grid login-form">
                     <div class="text">Username:</div>
-                    <input title="Enter username" class="input" type="text" name="username" placeholder="Username">
+                    <input title="Enter username" class="input" type="text" name="username" placeholder="Player">
                     <div class="text">Email:</div>
-                    <input title="Enter email" class="input" type="text" name="email" placeholder="Email">
+                    <input title="Enter email" class="input" type="text" name="email" placeholder="player@gmail.com">
                     <div class="text">Old password:</div>
                     <input title="Enter password" class="input" type="password" name="password" placeholder="Password">
                     <div class="text">New password:</div>
-                    <input title="Enter password" class="input" type="password" name="reppass" placeholder=" New password">
+                    <input title="Enter password" class="input" type="password" name="reppass" placeholder="New password">
                     <div class="text">Repeat password:</div>
-                    <input title="Repeat password" class="input" type="password" name="reppass" placeholder=" Repeat password">
+                    <input title="Repeat password" class="input" type="password" name="reppass" placeholder="Repeat password">
                 </div>
                 </form>
                     <div class="hexagon-set_normal hexagon-button-set_sm login-button">
