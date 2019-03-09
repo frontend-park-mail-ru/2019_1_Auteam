@@ -17,18 +17,32 @@
         <div class="centered-context">
             <div class="hexagon-set_normal">
                 <div class="hexagon-set__line">
-                    <!--{{#each users}}-->
+                    {{#before 5 users}}
                         <div class="hexagon">
-                            <a title="Player" href="#" class="hexagon__main hexagon__main_border_custom">
+                            <div title="{{username}}" class="hexagon__main hexagon__main_border_custom">
                                 <div class="hexagon__filling hexagon__filling_custom">
                                     <div class="centered-text">
-                                        <p>Player</p>
-                                        <p>100</p>
+                                        <p>{{username}}</p>
+                                        <p>{{score}}</p>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    <!--{{/each}}-->
+                    {{/before}}
+                </div>
+                <div class="hexagon-set__line">
+                    {{#after 5 users}}
+                        <div class="hexagon">
+                            <div title="{{username}}" class="hexagon__main hexagon__main_border_custom">
+                                <div class="hexagon__filling hexagon__filling_custom">
+                                    <div class="centered-text">
+                                        <p>{{username}}</p>
+                                        <p>{{score}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/after}}
                 </div>
             </div>
             <div class="pagination">

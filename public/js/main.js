@@ -8,6 +8,9 @@ import {PlayComponent} from "./components/Play/Play.js";
 import {ProfileComponent} from "./components/Profile/Profile.js";
 import {RegistrationComponent} from "./components/Registration/Registration.js";
 import {SettingsComponent} from "./components/Settings/Settings.js";
+import "./utils/handlebars/helpers.js";
+
+const {AjaxModule} = window;
 
 const container = document.getElementById('js-container');
 
@@ -26,11 +29,22 @@ function createMenu() {
 }
 
 function createLeaderboard(users) {
-	const board = new LeaderboardComponent({
-		el: container,
-	});
-	board.data = []; 
-	board.render();
+	if (users) {
+		const board = new LeaderboardComponent({
+			el: container,
+		});
+		board.data = JSON.parse(JSON.stringify(users));
+		board.render();
+	} else {
+		AjaxModule.doGet({
+			callback(xhr) {
+				const users = JSON.parse(xhr.responseText);
+				container.innerHTML = '';
+				createLeaderboard({users: users});
+			},
+			path: '/leaderboard',
+		});
+	}
 }
 
 function createLogin() {
@@ -82,7 +96,6 @@ const pages = {
 createMenu();
 
 container.addEventListener('click', function (event) {
-	console.log(event.target.href);
 	const link = event.target.closest('a');
 	if (link === null) {
 		return;
