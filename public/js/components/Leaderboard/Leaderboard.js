@@ -1,10 +1,6 @@
-export class LeaderboardComponent {
-	constructor({
-		el = document.body
-	} = {}) {
-		this._el = el;
-	}
+import {BaseComponent} from '../Base/Base.js';
 
+export class LeaderboardComponent extends BaseComponent {
 	get data() {
 		return this._data;
 	}
