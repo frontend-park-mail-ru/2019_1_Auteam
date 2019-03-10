@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "node index.js",
+		"start": "node server/index.js",
 		"hand": "node_modules/.bin/handlebars public/js/components/* -f public/js/handlebars.precompile.js",
 		"prestart": "npm run hand"
 	},
