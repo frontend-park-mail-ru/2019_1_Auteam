@@ -39,7 +39,6 @@ function createLeaderboard(users) {
 		AjaxModule.doGet({
 			callback(xhr) {
 				const users = JSON.parse(xhr.responseText);
-				container.innerHTML = '';
 				createLeaderboard({users: users});
 			},
 			path: '/leaderboard',
@@ -151,6 +150,5 @@ container.addEventListener('click', function (event) {
 		return;
 	}
 	event.preventDefault();
-	container.innerHTML = '';
 	pages[ page ]();
 });

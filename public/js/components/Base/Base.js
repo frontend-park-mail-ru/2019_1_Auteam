@@ -6,6 +6,7 @@ export class BaseComponent {
 	}
 
 	render() {
+		this._el.innerHTML = '';
 		this.__renderTmpl();
 	}
 
