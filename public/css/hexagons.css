@@ -72,7 +72,7 @@ body {
 }
 
 .hexagon__img {
-    background-image: url("../img/image.jpg");
+    background-image: url("../image.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
