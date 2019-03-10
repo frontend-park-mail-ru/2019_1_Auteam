@@ -1,6 +1,14 @@
 (function() {
   const noop = () => null;
 
+  const getBasePath = () => {
+    if (window.location.hostname === 'dev.mycodestory.ru') {
+      return '//back.dev.mycodestory.ru';
+    }
+    return '';
+  };
+  const basePath = getBasePath();
+
   class AjaxModule {
     _ajax({
       callback = noop,
@@ -9,7 +17,7 @@
       body = {},
     } = {}) {
       const xhr = new XMLHttpRequest();
-      xhr.open(method, path, true);
+      xhr.open(method, `${basePath}${path}`, true);
       xhr.withCredentials = true;
 
       if (body) {
