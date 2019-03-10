@@ -2,13 +2,13 @@
     <div class="hexagon-set_normal back-button">
         <div class="hexagon-set__line">
             <div class="hexagon">
-                <button title="Back" type="submit" href="#" class="hexagon__main hexagon__main_border_custom">  
+                <a title="Back" href="menu" class="hexagon__main hexagon__main_border_custom">
                     <div class="hexagon__filling hexagon__filling_custom">
                         <div class="centered-text">
                             Back
                         </div>
                     </div>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -16,11 +16,12 @@
     <div class="content">
         <div class="centered-context">
             <form action="" class="login-form" method="POST">
-                <div class="login-form">
+                <div id="login" class="login-form">
                     <input title="Enter username" class="input" type="text" name="username" placeholder="Username">
                     <input title="Enter email" class="input" type="text" name="email" placeholder="Email">
                     <input title="Enter password" class="input" type="password" name="password" placeholder="Password">
-                    <input title="Repeat password" class="input" type="password" name="reppass" placeholder=" Repeat password">
+                    <input title="Repeat password" class="input" type="password" name="reppass" placeholder="Repeat password">
+                    <p id="err" class="error-text"></p>
                 </div>
                 <div class="hexagon-set_normal hexagon-button-set_md login-button">
                 <div class="hexagon-set__line">

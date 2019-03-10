@@ -73,6 +73,52 @@ function createRegistration() {
 		el: container,
 	});
 	registration.render();
+
+	const form = document.getElementById('login');
+	const inputs = form.getElementsByTagName('input');
+	const err = document.getElementById('err');
+
+	function checkValue(value, reg, message) {
+		if (!reg.test(value)) {
+			err.innerText = message;
+		} else {
+			err.innerText = '';
+		}
+
+		if (!value) {
+			err.innerText = '';
+		}
+	};
+
+	inputs['email'].addEventListener('input', function (event) {
+		const EMAIL_REG = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		checkValue(event.target.value, EMAIL_REG, 'Email is not valid');
+	});
+
+	inputs['username'].addEventListener('input', function (event) {
+		const USERNAME_REG = /^[-0-9a-z@_\-.]+$/i;
+		checkValue(event.target.value, USERNAME_REG, 'Username is not valid');
+	});
+
+	function checkPassword(first, second) {
+		if (first.value !== second.value) {
+			err.innerText = 'Password didn\'t match';
+		} else {
+			err.innerText = '';
+		}
+
+		if (!first.value || !second.value) {
+			err.innerText = '';
+		}
+	}
+
+	inputs['password'].addEventListener('input', function (event) {
+		checkPassword(event.target, inputs['reppass']);
+	});
+
+	inputs['reppass'].addEventListener('input', function (event) {
+		checkPassword(event.target, inputs['password']);
+	});
 }
 
 function createSettings() {
