@@ -90,7 +90,7 @@ function createRegistration() {
 	};
 
 	inputs['email'].addEventListener('input', function (event) {
-		const EMAIL_REG = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		const EMAIL_REG = /@/;
 		checkValue(event.target.value, EMAIL_REG, 'Email is not valid');
 	});
 
