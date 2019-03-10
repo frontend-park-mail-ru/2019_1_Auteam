@@ -18,6 +18,7 @@ export class LeaderboardComponent extends BaseComponent {
   }
 
   __renderTmpl() {
-    this._el.innerHTML = Handlebars.templates.Leaderboard(this._data);
+    const {Leaderboard: leaderboardTemplate} = Handlebars.templates;
+    this._el.innerHTML = leaderboardTemplate(this._data);
   }
 }

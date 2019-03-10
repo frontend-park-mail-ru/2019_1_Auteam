@@ -2,6 +2,7 @@ import {BaseComponent} from '../Base/Base.js';
 
 export class SettingsComponent extends BaseComponent {
   __renderTmpl() {
-    this._el.innerHTML = Handlebars.templates.Settings();
+    const {Settings: settingsTemplate} = Handlebars.templates;
+    this._el.innerHTML = settingsTemplate();
   }
 }
