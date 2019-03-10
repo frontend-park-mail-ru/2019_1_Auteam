@@ -201,3 +201,7 @@ input:-webkit-autofill {
     font-size: 15px;
     color: red;
 }
+
+.full {
+    height: 100%;
+}
