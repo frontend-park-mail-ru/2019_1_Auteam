@@ -40,16 +40,12 @@ function createLeaderboard(users) {
     board.data = JSON.parse(JSON.stringify(users));
     board.render();
   } else {
-    const basePath = '';
-    if (window.location.hostname === 'dev.mycodestory.ru') {
-      basePath = '//back.dev.mycodestory.ru';
-    }
     AjaxModule.doGet({
       callback(xhr) {
         const users = JSON.parse(xhr.responseText);
         createLeaderboard({users: users});
       },
-      path: basePath + '/leaderboard',
+      path: '/leaderboard',
     });
   }
 }
