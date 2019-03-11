@@ -80,47 +80,91 @@ function createRegistration() {
   const form = document.getElementById('login');
   const inputs = form.getElementsByTagName('input');
   const err = document.getElementById('err');
+  const submit = document.getElementById('submit_register')
+
+  let isEmailValid = false
+  let isUsernameValid = false
+  let isPasswordValid = false
 
   function checkValue(value, reg, message) {
     if (!reg.test(value)) {
       err.innerText = message;
+      return false
     } else {
       err.innerText = '';
+      return true
     }
 
     if (!value) {
       err.innerText = '';
+      return false
     }
   };
 
   inputs['email'].addEventListener('input', function(event) {
     const EMAIL_REG = /@/;
-    checkValue(event.target.value, EMAIL_REG, 'Email is not valid');
+    isEmailValid = checkValue(event.target.value, EMAIL_REG, 'Email is not valid');
   });
 
   inputs['username'].addEventListener('input', function(event) {
     const USERNAME_REG = /^[-0-9a-z@_\-.]+$/i;
-    checkValue(event.target.value, USERNAME_REG, 'Username is not valid');
+    isUsernameValid = checkValue(event.target.value, USERNAME_REG, 'Username is not valid');
   });
 
   function checkPassword(first, second) {
     if (first.value !== second.value) {
       err.innerText = 'Password didn\'t match';
+      return false
     } else {
       err.innerText = '';
+      return true
     }
 
     if (!first.value || !second.value) {
       err.innerText = '';
+      return false
     }
   }
 
   inputs['password'].addEventListener('input', function(event) {
-    checkPassword(event.target, inputs['reppass']);
+    isPasswordValid = checkPassword(event.target, inputs['reppass']);
   });
 
   inputs['reppass'].addEventListener('input', function(event) {
-    checkPassword(event.target, inputs['password']);
+    isPasswordValid = checkPassword(event.target, inputs['password']);
+  });
+
+  function register() {
+    console.log(!isEmailValid || !isPasswordValid || !isUsernameValid)
+    if (!isEmailValid || !isPasswordValid || !isUsernameValid) {
+      return
+    }
+    AjaxModule.doPost({
+      callback(xhr) {
+        if (xhr.status == 200) {
+          const validation = JSON.parse(xhr.responseText)
+          if (validation["usernameValidate"]["success"] == true &&
+              validation["passwordValidate"]["success"] == true &&
+              validation["emailValidate"]["success"] == true) {
+            createProfile()
+          }
+        }
+      },
+      body: {
+        userInfo: {
+          username: inputs["username"].value,
+          email: inputs["email"].value
+        },
+        password: inputs["password"].value
+      },
+      path: '/user/signup'
+    })
+  }
+
+  const regForm = document.getElementById('reg_form');
+  regForm.addEventListener('submit', function(event) {
+    console.log("Register")
+    register()
   });
 }
 
