@@ -45,7 +45,7 @@ function createLeaderboard(users) {
         const users = JSON.parse(xhr.responseText);
         createLeaderboard({users: users});
       },
-      path: '/leaderboard',
+      path: '/user/list',
     });
   }
 }
@@ -56,18 +56,25 @@ function createLogin() {
   });
   login.render();
   const loginForm = document.getElementById("login_form");
-  console.log(loginForm)
+  console.log(loginForm);
   const inputs = loginForm.getElementsByTagName('input');
-  console.log(inputs)
+  console.log(inputs);
 
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault()
     if (inputs["username"].value == "" ||
         inputs["password"].value == "") {
-      return
+      console.log("fields empty");
+      return;
     }
     AjaxModule.doPost({
       callback(xhr) {
+        console.log(xhr.status)
+        if (xhr.status == 200) {
+          console.log("logined");
+          window.userStatus = 1;
+          createProfile();
+        }
       },
       body: {
         username : inputs["username"].value,

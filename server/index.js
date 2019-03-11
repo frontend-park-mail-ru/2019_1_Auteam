@@ -79,7 +79,7 @@ const users = {
 };
 const ids = {};
 
-app.post('/signup', function(req, res) {
+app.post('user/signup', function(req, res) {
   const password = req.body.password;
   const email = req.body.email;
   if (
@@ -99,13 +99,42 @@ app.post('/signup', function(req, res) {
   users[username] = user;
 
   res.cookie('sessionid', id, {expires: new Date(Date.now() + 1000 * 60 * 10)});
-  res.status(201).json({id});
+  res.status(200).json({
+    "usernameValidate": {
+      "success": true,
+      "error": {
+        "message": ""
+      }
+    },
+    "passwordValidate": {
+      "success": true,
+      "error": {
+        "message": ""
+      }
+    },
+    "emailValidate": {
+      "success": true,
+      "error": {
+        "message": ""
+      }
+    },
+    "userpicValidate": {
+      "success": true,
+      "error": {
+        "message": ""
+      }
+    },
+    "error": {
+      "message": ""
+    }
+  });
 });
 
-app.post('/login', function(req, res) {
+app.post('/user/login', function(req, res) {
+  console.log("login reqs")
   const password = req.body.password;
-  const email = req.body.email;
-  if (!username || !password || !email) {
+  const username = req.body.username
+  if (!username || !password) {
     return res.status(400).json({error: 'Не указан username, EMail, пароль'});
   }
   if (!users[username] || users[username].password !== password) {
@@ -116,28 +145,41 @@ app.post('/login', function(req, res) {
   ids[id] = username;
 
   res.cookie('sessionid', id, {expires: new Date(Date.now() + 1000 * 60 * 10)});
-  res.status(200).json({id});
+  res.status(200).json();
 });
 
-app.get('/profile', function(req, res) {
+app.get('/user/session', function(req, res) {
   const id = req.cookies['sessionid'];
   const username = ids[id];
   if (!username || !users[username]) {
-    return res.status(401).end();
+    return res.status(403).end();
   }
-
-  res.json(users[username]);
+  user = users.username
+  res.json({
+    "userInfo": {
+      username: user.username,
+      email: user.emails
+    },
+    "gameInfo": {
+      score: user.score
+    }
+  });
 });
 
-app.get('/leaderboard', function(req, res) {
+app.get('/user/list', function(req, res) {
   const scorelist = Object.values(users)
-      .sort((l, r) => r.score - l.score)
-      .map((user) => {
-        return {
-          username: user.username,
-          score: user.score,
-        };
-      });
+    .sort((l, r) => r.score - l.score)
+    .map((user) => {
+      return {
+        'userInfo': {
+          "username": user.username,
+          "email": user.email,
+        },
+        'gameInfo': {
+          "score": user.score,
+        }
+      };
+    });
   res.json(scorelist);
 });
 
