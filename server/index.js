@@ -13,6 +13,9 @@ app.use(morgan('dev'));
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 app.use(body.json());
 app.use(cookie());
+app.use(cors({
+  origin: 'http://dev.mycodestory.ru'
+}));
 
 
 const users = {
@@ -184,7 +187,6 @@ app.get('/user/list', function(req, res) {
 });
 
 const port = process.env.PORT || 3000;
-app.use(cors())
 app.listen(port, function() {
   console.log(`Server listening port ${port}`);
 });
