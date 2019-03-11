@@ -184,7 +184,7 @@ app.get('/user/list', function(req, res) {
 });
 
 const port = process.env.PORT || 3000;
-
+app.use(cors())
 app.listen(port, function() {
   console.log(`Server listening port ${port}`);
 });

@@ -97,6 +97,18 @@ function createProfile() {
     el: container,
   });
   profile.render();
+  AjaxModule.doPost({
+    callback(xhr) {
+      console.log(xhr.status)
+      if (xhr.status == 200) {
+        console.log("logined");
+        window.userStatus = 1;
+        data = JSON.parse(xhr.responseText())
+        
+      }
+    },
+    path: '/user/session', 
+  });
 }
 
 function createRegistration() {
