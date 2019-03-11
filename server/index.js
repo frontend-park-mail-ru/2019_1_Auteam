@@ -84,7 +84,8 @@ const ids = {};
 
 app.post('/user/signup', function(req, res) {
   const password = req.body.password;
-  const email = req.body.email;
+  const username = req.body.UserInfo.username;
+  const email = req.body.UserInfo.email;
   if (
     !username || !password || !email ||
     !password.match(/^\S{4,}$/) ||

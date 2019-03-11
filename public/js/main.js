@@ -66,6 +66,7 @@ function createLogin() {
     }
     AjaxModule.doPost({
       callback(xhr) {
+        console.log(xhr.status)
         if (xhr.status == 200) {
           window.userStatus = 1;
           createProfile();
