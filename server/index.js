@@ -82,7 +82,7 @@ const users = {
 };
 const ids = {};
 
-app.post('user/signup', function(req, res) {
+app.post('/user/signup', function(req, res) {
   const password = req.body.password;
   const email = req.body.email;
   if (
