@@ -11,6 +11,6 @@ export class MenuComponent extends BaseComponent {
 
   __renderTmpl() {
     const {Menu: menuTemplate} = Handlebars.templates;
-    this._el.innerHTML = menuTemplate(this._data);
+    this._el.innerHTML = menuTemplate({page: this._data});
   }
 }
