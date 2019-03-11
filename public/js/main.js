@@ -163,7 +163,7 @@ function createRegistration() {
 
   const regForm = document.getElementById('reg_form');
   regForm.addEventListener('submit', function(event) {
-    console.log("Register")
+    event.preventDefault()
     register()
   });
 }
