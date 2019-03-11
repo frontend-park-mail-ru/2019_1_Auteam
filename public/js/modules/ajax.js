@@ -9,7 +9,15 @@
   };
   const basePath = getBasePath();
 
+  /** class performing Ajax requests. */
   class AjaxModule {
+    /**
+     * Ajax request.
+     * @param {function} callback
+     * @param {string} method - GET/POST method.
+     * @param {string} path - URL path.
+     * @param {Object} body - context object.
+     */
     _ajax({
       callback = noop,
       method = 'GET',
@@ -39,7 +47,15 @@
       }
     }
 
-    doGet({
+    /**
+     * GET request.
+     * @param {Object} - Object like _ajax({}) param.
+     */
+    doGet({    /**
+     * GET request.
+     * @param {Object} - Object like _ajax({}) param.
+     */
+
       callback = noop,
       path = '/',
       body = {},
@@ -52,6 +68,10 @@
       });
     }
 
+    /**
+     * POST request.
+     * @param {Object} - Object like _ajax({}) param.
+     */
     doPost({
       callback = noop,
       path = '/',
