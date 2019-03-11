@@ -56,22 +56,17 @@ function createLogin() {
   });
   login.render();
   const loginForm = document.getElementById("login_form");
-  console.log(loginForm);
   const inputs = loginForm.getElementsByTagName('input');
-  console.log(inputs);
 
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault()
     if (inputs["username"].value == "" ||
         inputs["password"].value == "") {
-      console.log("fields empty");
       return;
     }
     AjaxModule.doPost({
       callback(xhr) {
-        console.log(xhr.status)
         if (xhr.status == 200) {
-          console.log("logined");
           window.userStatus = 1;
           createProfile();
         }
@@ -99,12 +94,10 @@ function createProfile() {
   profile.render();
   AjaxModule.doPost({
     callback(xhr) {
-      console.log(xhr.status)
       if (xhr.status == 200) {
-        console.log("logined");
         window.userStatus = 1;
         data = JSON.parse(xhr.responseText())
-        
+        const inputs = loginForm.getElementsByTagName('input');
       }
     },
     path: '/user/session', 
