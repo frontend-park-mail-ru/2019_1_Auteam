@@ -1,0 +1,28 @@
+{
+	"name": "beehex",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node server/index.js",
+		"hand": "node_modules/.bin/handlebars public/js/components/* -f public/js/handlebars.precompile.js",
+		"prestart": "npm run hand"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"cookie-parser": "^1.4.4",
+		"express": "^4.16.4",
+		"handlebars": "^4.1.0",
+		"jsdoc": "^3.5.5",
+		"morgan": "^1.9.1",
+		"npm": "^6.9.0",
+		"uuid": "^3.3.2"
+	},
+	"devDependencies": {
+		"eslint": "^5.15.1",
+		"eslint-config-google": "^0.12.0"
+	}
+}
