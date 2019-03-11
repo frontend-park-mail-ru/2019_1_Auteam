@@ -51,6 +51,27 @@ function createLogin() {
     el: container,
   });
   login.render();
+  const loginForm = document.getElementById("login_form");
+  console.log(loginForm)
+  const inputs = loginForm.getElementsByTagName('input');
+  console.log(inputs)
+
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault()
+    if (inputs["username"].value == "" ||
+        inputs["password"].value == "") {
+      return
+    }
+    AjaxModule.doPost({
+      callback(xhr) {
+      },
+      body: {
+        username : inputs["username"].value,
+        password : inputs["password"].value,
+      },
+      path: '/user/login', 
+    });
+  });
 }
 
 function createPlay() {
@@ -131,7 +152,6 @@ function createRegistration() {
   });
 
   function register() {
-    console.log(!isEmailValid || !isPasswordValid || !isUsernameValid)
     if (!isEmailValid || !isPasswordValid || !isUsernameValid) {
       return
     }
