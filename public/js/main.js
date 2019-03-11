@@ -9,10 +9,13 @@ import {ProfileComponent} from './components/Profile/Profile.js';
 import {RegistrationComponent} from './components/Registration/Registration.js';
 import {SettingsComponent} from './components/Settings/Settings.js';
 import './utils/handlebars/helpers.js';
+import {NEW_USER, LOGGED_IN} from './utils/constants.js';
 
 const {AjaxModule} = window;
 
 const container = document.getElementById('js-container');
+
+window.userStatus = NEW_USER;
 
 function createAbout() {
   const about = new AboutComponent({
@@ -25,6 +28,7 @@ function createMenu() {
   const menu = new MenuComponent({
     el: container,
   });
+  menu.data = userStatus === NEW_USER ? 'registration' : 'profile';
   menu.render();
 }
 
