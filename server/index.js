@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const uuid = require('uuid/v4');
 const path = require('path');
 const app = express();
-
+const cors = require('cors');
 
 app.use(morgan('dev'));
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
