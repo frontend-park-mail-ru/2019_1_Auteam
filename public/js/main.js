@@ -73,8 +73,8 @@ function createLogin() {
         }
       },
       body: {
-        username : inputs["username"].value,
-        password : inputs["password"].value,
+        "username" : inputs["username"].value,
+        "password" : inputs["password"].value,
       },
       path: '/user/login', 
     });
@@ -184,11 +184,11 @@ function createRegistration() {
         }
       },
       body: {
-        userInfo: {
-          username: inputs["username"].value,
-          email: inputs["email"].value
+        "userInfo": {
+          "username": inputs["username"].value,
+          "email": inputs["email"].value
         },
-        password: inputs["password"].value
+        "password": inputs["password"].value
       },
       path: '/user/signup'
     })
