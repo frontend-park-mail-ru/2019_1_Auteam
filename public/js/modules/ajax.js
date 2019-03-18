@@ -2,10 +2,11 @@
   const noop = () => null;
 
   const getBasePath = () => {
-    if (window.location.hostname === 'dev.mycodestory.ru') {
-      return '//back.dev.mycodestory.ru';
-    }
-    return '';
+//     if (window.location.hostname === 'dev.mycodestory.ru') {
+//       return '//back.dev.mycodestory.ru';
+//     }
+//     return '';
+    return '//back.' + window.location.hostname;
   };
   const basePath = getBasePath();
 
