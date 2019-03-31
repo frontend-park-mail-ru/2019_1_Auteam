@@ -1,3 +1,4 @@
 node_modules
 package-lock.json
-public/js/handlebars.precompile.js
+src/public/js/handlebars.precompile.js
+dist

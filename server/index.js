@@ -14,7 +14,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'public')));
 app.use(body.json());
 app.use(cookie());
 app.use(cors({
-  credentials: true, origin: 'http://dev.mycodestory.ru'
+  credentials: true, origin: 'http://dev.mycodestory.ru',
 }));
 
 
@@ -104,40 +104,40 @@ app.post('/user/signup', function(req, res) {
 
   res.cookie('sessionid', id, {expires: new Date(Date.now() + 1000 * 60 * 10)});
   res.status(200).json({
-    "usernameValidate": {
-      "success": true,
-      "error": {
-        "message": ""
-      }
+    'usernameValidate': {
+      'success': true,
+      'error': {
+        'message': '',
+      },
     },
-    "passwordValidate": {
-      "success": true,
-      "error": {
-        "message": ""
-      }
+    'passwordValidate': {
+      'success': true,
+      'error': {
+        'message': '',
+      },
     },
-    "emailValidate": {
-      "success": true,
-      "error": {
-        "message": ""
-      }
+    'emailValidate': {
+      'success': true,
+      'error': {
+        'message': '',
+      },
     },
-    "userpicValidate": {
-      "success": true,
-      "error": {
-        "message": ""
-      }
+    'userpicValidate': {
+      'success': true,
+      'error': {
+        'message': '',
+      },
     },
-    "error": {
-      "message": ""
-    }
+    'error': {
+      'message': '',
+    },
   });
 });
 
 app.post('/user/login', function(req, res) {
-  console.log("login reqs")
+  console.log('login reqs');
   const password = req.body.password;
-  const username = req.body.username
+  const username = req.body.username;
   if (!username || !password) {
     return res.status(400).json({error: 'Не указан username, EMail, пароль'});
   }
@@ -158,32 +158,32 @@ app.get('/user/session', function(req, res) {
   if (!username || !users[username]) {
     return res.status(403).end();
   }
-  user = users.username
+  user = users.username;
   res.json({
-    "userInfo": {
+    'userInfo': {
       username: user.username,
-      email: user.emails
+      email: user.emails,
     },
-    "gameInfo": {
-      score: user.score
-    }
+    'gameInfo': {
+      score: user.score,
+    },
   });
 });
 
 app.get('/user/list', function(req, res) {
   const scorelist = Object.values(users)
-    .sort((l, r) => r.score - l.score)
-    .map((user) => {
-      return {
-        'userInfo': {
-          "username": user.username,
-          "email": user.email,
-        },
-        'gameInfo': {
-          "score": user.score,
-        }
-      };
-    });
+      .sort((l, r) => r.score - l.score)
+      .map((user) => {
+        return {
+          'userInfo': {
+            'username': user.username,
+            'email': user.email,
+          },
+          'gameInfo': {
+            'score': user.score,
+          },
+        };
+      });
   res.json(scorelist);
 });
 
